@@ -22,6 +22,10 @@ export default function Home() {
     'SHOTS'
   ]
 
+  if (loading) {
+    return <SkeletonMenu />
+  }
+
   return (
     <div className="min-h-screen py-6 px-4 sm:px-6 lg:px-8">
       <div className="space-y-8">
@@ -54,6 +58,7 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <div className="flex p-4 bg-white rounded-lg shadow-sm">
       <Image
+        priority
         height={96}
         width={96}
         src={product.image_url ?? '/images/placeholder.webp'}
@@ -80,6 +85,42 @@ function ProductCard({ product }: { product: Product }) {
           >
             +
           </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SkeletonMenu() {
+  return (
+    <div className="min-h-screen py-6 px-4 sm:px-6 lg:px-8">
+      <div className="space-y-8">
+        {[...Array(5)].map((_, index) => (
+          <section key={index} className="space-y-4">
+            <div className="h-6 w-1/3 bg-slate-200 rounded animate-pulse" />
+
+            <div className="space-y-4">
+              {[...Array(5)].map((_, index) => (
+                <SkeletonProductCard key={index} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function SkeletonProductCard() {
+  return (
+    <div className="flex p-4 bg-white rounded-lg shadow-sm animate-pulse">
+      <div className="w-24 h-24 bg-slate-200 rounded-md mr-4" />
+      <div className="flex-1 flex flex-col">
+        <div className="h-4 bg-slate-200 rounded w-1/2" />
+        <div className="mt-2 h-3 bg-slate-200 rounded w-3/4" />
+        <div className="mt-auto flex items-center justify-between pt-2">
+          <div className="h-4 bg-slate-200 rounded w-16" />
+          <div className="h-9 w-9 bg-slate-200 rounded-full" />
         </div>
       </div>
     </div>
