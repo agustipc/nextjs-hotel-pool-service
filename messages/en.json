@@ -1,6 +1,15 @@
 {
-  "HomePage": {
-    "title": "Home Page",
-    "description": "This is the home page"
+  "Categories": {
+    "COFFEES": "Coffees",
+    "SOFT_DRINKS": "Soft drinks",
+    "BEERS_AND_WINES": "Beers & wines",
+    "COCKTAILS": "Cocktails",
+    "CLASSIC_LONG_DRINKS": "Classic longdrinks",
+    "SMOOTHIES": "Smoothies",
+    "SHOTS": "Shots"
+  },
+  "Products": {
+    "espresso_title": "Espresso",
+    "espresso_double_title": "Espresso double"
   }
 }

@@ -1,3 +1,12 @@
+export type Categories =
+  | 'COFFEES'
+  | 'SOFT_DRINKS'
+  | 'BEERS_AND_WINES'
+  | 'COCKTAILS'
+  | 'CLASSIC_LONG_DRINKS'
+  | 'SMOOTHIES'
+  | 'SHOTS'
+
 type UserType = 'ADMIN' | 'USER'
 export interface ProductOptions {
   id: string
@@ -23,4 +32,14 @@ export interface Product {
   image_url: string
   options: ProductOptions[]
   extras: ProductExtras[]
+  category: Categories
 }
+
+export type ProductsState = {
+  products: Product[]
+  loading: boolean
+}
+
+export type ProductsAction =
+  | { type: 'SET_PRODUCTS'; payload: Product[] }
+  | { type: 'SET_LOADING'; payload: boolean }

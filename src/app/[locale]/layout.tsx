@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Montserrat, Lato } from 'next/font/google'
 import '../globals.css'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import { ProductsProvider } from '../context/productsContext'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  display: 'swap'
+  display: 'swap',
+  variable: '--font-montserrat'
+})
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '700', '900'],
+  display: 'swap',
+  variable: '--font-lato'
 })
 
 export const metadata: Metadata = {
@@ -29,8 +37,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${montserrat.className} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <body
+        className={`${montserrat.variable} ${lato.variable} antialiased max-w-2xl mx-auto`}
+      >
+        <ProductsProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ProductsProvider>
       </body>
     </html>
   )

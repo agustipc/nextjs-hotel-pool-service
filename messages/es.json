@@ -1,6 +1,15 @@
 {
-  "HomePage": {
-    "title": "Pagina de Inicio",
-    "description": "Esta es la pagina de inicio"
+  "Categories": {
+    "COFFEES": "Cafés",
+    "SOFT_DRINKS": "Refrescos",
+    "BEERS_AND_WINES": "Cervezas y vinos",
+    "COCKTAILS": "Cócteles",
+    "CLASSIC_LONG_DRINKS": "Cócteles largos clásicos",
+    "SMOOTHIES": "Smoothies",
+    "SHOTS": "Chupitos"
+  },
+  "Products": {
+    "espresso_title": "Espresso",
+    "espresso_double_title": "Espresso doble"
   }
 }
